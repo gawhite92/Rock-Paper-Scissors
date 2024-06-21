@@ -1,45 +1,20 @@
-//Pseudocode
-//- Calculate randomised input for computerHand -> function getComputerChoice (uses Math.random)
-//2 , 3 - "Lose! Scissors beats paper!"
-//- Assign the above computerHand return to variable
-//- Assign shorthand variables for rock / paper / scissors. r / p / s, or 1 = Rock, 2 = Paper, 3 = Scissors.
-//- Calculate win / lose / draw, code all scenarios. Below table.
-//- Display outcome to user. Below table.
-//
-//1 - 1 - "Draw!"
-//1 , 2 - "Lose! Paper beats rock!"
-//1 , 3 - "Win! Rock beats paper!"
-//
-//2 , 1 - "Win! Paper beats rock!"
-//2 , 2 - "Draw!"
-//3 , 3 - "Draw!"
-//
-//3 , 1 - "Lose! Rock beats scissors!"
-//3 , 2 - "Win! Scissors beats paper!"
-//- Update score - need to research this
+// -------COMPUTER HAND------- //
 
+const pick = ['Rock', 'Paper', 'Scissors']; //Three possible hands (pick)
 
-
-
-//Three possible hands (pick)
-const pick = ['Rock', 'Paper', 'Scissors'];
-//The computers chosen hand
-const computerHand = computerChoice();
-
-
-//FUNCTION - Calculates random computer choice of hand
 function computerChoice() {
-    return pick[(Math.floor(Math.random()*3))];
+    return pick[(Math.floor(Math.random()*3))]; //Calculates the computer hand
 }
 
-// Ask input for playerHand
-const playerInput = prompt("Make a choice. Rock... Paper... Scissors!").toLowerCase();
+let computerHand = computerChoice(); //The computers chosen hand
+//-----------------------------//
 
-//The players chosen hand
-const playerHand = playerChoice();
 
-// Tidy player input to reduce input errors
+// -------PLAYER HAND------- //
+let playerHand = playerChoice();
+
 function playerChoice() {
+    let playerInput = prompt("Make a choice. Rock... Paper... Scissors!").toLowerCase();
     if (playerInput == "r" || playerInput == "rock") {
         return "Rock"
     } else if (playerInput == "p" || playerInput == "paper") {
@@ -51,13 +26,13 @@ function playerChoice() {
     }
 }
 
-//**DEBUG - ARE BOTH HANDS WORKING**//
-console.log("Player: " + playerHand);
-console.log("Computer: " + computerHand);
 
-// Declare the player score variable
+// Scoreboard starts at zero
 let humanScore = 0
 let computerScore = 0
+
+// Scoring Logic
+
 
 // Game logic for 1 game
 function playRound(playerHand, computerHand) {
@@ -99,15 +74,18 @@ function playRound(playerHand, computerHand) {
 }
 
 function playGame(){
+playerChoice();
+computerChoice();
+console.log("Player: " + playerHand);
+console.log("Computer: " + computerHand);
+playRound(playerHand, computerHand);
+
+console.log("*****ROUND 2*****")
+playerChoice();
+computerChoice();
+console.log("Player: " + playerHand);
+console.log("Computer: " + computerHand);
 playRound(playerHand, computerHand);
 }
 
 playGame();
-
-
-
-
-
-
-
-
