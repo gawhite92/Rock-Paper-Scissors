@@ -52,21 +52,57 @@ function playerChoice() {
 }
 
 //**DEBUG - ARE BOTH HANDS WORKING**//
-console.log(playerHand);
-console.log(computerHand);
+console.log("Player: " + playerHand);
+console.log("Computer: " + computerHand);
 
 // Declare the player score variable
-const humanScore = 0
-const computerScore = 0
+let humanScore = 0
+let computerScore = 0
 
-//function playRound(playerHand, computerHand) {
-//    if (playerHand == computerHand) {
-//        console.log("It's a tie! You both chose ${playerHand}");
-//    } else if (playerHand == Rock && computerHand == Paper){
-//        console.log("You lose! Paper beats Rock.");
-//        const humanScore++1
-//    } else if (playerHand)
-//}
+// Game logic for 1 game
+function playRound(playerHand, computerHand) {
+    if (playerHand === computerHand) {
+        console.log(`It's a tie! You both chose ${playerHand}.`);
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)
+    } else if (playerHand === "Rock" && computerHand === "Paper"){
+        console.log("You lose! Paper beats Rock.");
+        computerScore++;
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)
+    } else if (playerHand === "Rock" && computerHand === "Scissors"){
+        console.log("You win! Rock beats scissors.");
+        humanScore++;    
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)
+    } else if (playerHand === "Paper" && computerHand === "Rock"){
+        console.log("You win! Paper beats Rock.");    
+        humanScore++;  
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)
+    } else if (playerHand === "Paper" && computerHand === "Scissors"){
+        console.log("You lose! Scissors beats Paper.");    
+        computerScore++;
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)
+    } else if (playerHand === "Scissors" && computerHand === "Rock"){
+        console.log("You lose! Rock beats Scissors.");    
+        computerScore++;
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)
+    } else if (playerHand === "Scissors" && computerHand === "Paper"){
+        console.log("You win! Scissors beats Paper");
+        humanScore++; 
+        console.log ("Your score: " + humanScore)
+        console.log ("Computer score: " + computerScore)   
+    }
+}
+
+function playGame(){
+playRound(playerHand, computerHand);
+}
+
+playGame();
 
 
 
