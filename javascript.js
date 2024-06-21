@@ -1,5 +1,4 @@
 //Pseudocode
-//- Ask input for playerHand, assign to variable -> function getHumanChoice (uses prompt)
 //- Calculate randomised input for computerHand -> function getComputerChoice (uses Math.random)
 //2 , 3 - "Lose! Scissors beats paper!"
 //- Assign the above computerHand return to variable
@@ -18,3 +17,61 @@
 //3 , 1 - "Lose! Rock beats scissors!"
 //3 , 2 - "Win! Scissors beats paper!"
 //- Update score - need to research this
+
+
+
+
+//Three possible hands (pick)
+const pick = ['Rock', 'Paper', 'Scissors'];
+//The computers chosen hand
+const computerHand = computerChoice();
+
+
+//FUNCTION - Calculates random computer choice of hand
+function computerChoice() {
+    return pick[(Math.floor(Math.random()*3))];
+}
+
+// Ask input for playerHand
+const playerInput = prompt("Make a choice. Rock... Paper... Scissors!").toLowerCase();
+
+//The players chosen hand
+const playerHand = playerChoice();
+
+// Tidy player input to reduce input errors
+function playerChoice() {
+    if (playerInput == "r" || playerInput == "rock") {
+        return "Rock"
+    } else if (playerInput == "p" || playerInput == "paper") {
+        return "Paper"
+    } else if (playerInput == "s" || playerInput == "scissors") {
+        return "Scissors"
+    } else {
+        return ("Not a valid answer");
+    }
+}
+
+//**DEBUG - ARE BOTH HANDS WORKING**//
+console.log(playerHand);
+console.log(computerHand);
+
+// Declare the player score variable
+const humanScore = 0
+const computerScore = 0
+
+//function playRound(playerHand, computerHand) {
+//    if (playerHand == computerHand) {
+//        console.log("It's a tie! You both chose ${playerHand}");
+//    } else if (playerHand == Rock && computerHand == Paper){
+//        console.log("You lose! Paper beats Rock.");
+//        const humanScore++1
+//    } else if (playerHand)
+//}
+
+
+
+
+
+
+
+
